@@ -4,8 +4,6 @@ Functions for parsing and running testcases from the testcases.txt file.
 Written by Claude Code.
 """
 
-import sys,subprocess
-
 def parse_testcases(filename:str):
     cases = []
     current = {}
@@ -17,6 +15,6 @@ def parse_testcases(filename:str):
             elif line.startswith("input="):
                 current["input"] = eval(line[6:])
             elif line.startswith("output="):
-                current["output"] = int(line[7:])
+                current["output"] = eval(line[7:])
                 cases.append(current)
     return cases
